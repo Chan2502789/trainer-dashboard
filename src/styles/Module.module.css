@@ -1,0 +1,77 @@
+.container {
+  padding: 1rem 2rem; 
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  color: white;
+  background-color: #7c4dff;
+  padding: 1rem 22rem;
+  border-radius: 8px;
+}
+
+.dates {
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.buttons {
+  margin: 1rem 0;
+}
+
+.addBtn,
+.editBtn {
+  margin-right: 10px;
+  padding: 0.5rem 1rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.viewBtn:hover {
+  background-color: #7c4dff;
+  color: white;
+  cursor: pointer;
+}
+
+.viewBtn {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #7c4dff;
+  margin-right: 5px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.deleteBtn {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: red;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.deleteBtn:hover {
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+}

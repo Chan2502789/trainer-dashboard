@@ -42,4 +42,20 @@
     background-color: #f0f4ff;
     color: #4a90e2;
   }
-  
+
+  .menuItem {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 12px;
+    display: block;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .menuItem:hover {
+    background-color: #f0f4ff;
+    color: #4a90e2;
+  }
