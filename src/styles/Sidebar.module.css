@@ -1,0 +1,45 @@
+.sidebar {
+    width: 240px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 24px 20px;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.03);
+    min-height: 100vh;
+  }
+  
+  .logo {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    margin: 2.5rem auto;
+    display: block;
+  }
+  
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu li {
+    margin-bottom: 16px;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 12px;
+    display: block;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .menu li a:hover {
+    background-color: #f0f4ff;
+    color: #4a90e2;
+  }
+  
