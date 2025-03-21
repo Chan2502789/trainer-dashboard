@@ -7,6 +7,10 @@
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.03);
     min-height: 100vh;
   }
+  .navItem {
+    padding-left: 12px;
+  }
+
   
   .logo {
     width: 100%;
@@ -16,6 +20,15 @@
     margin: 2.5rem auto;
     display: block;
   }
+
+  .sectionTitle {
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    margin: 20px 0 10px 12px;
+  }
+  
   
   .menu {
     list-style: none;

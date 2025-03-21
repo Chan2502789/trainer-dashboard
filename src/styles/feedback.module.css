@@ -1,0 +1,86 @@
+.container {
+    width: 350px;
+    margin: 150px auto 0 auto; /* Increased top margin */
+    padding: 20px;
+    border: 5px solid rgba(128, 0, 255, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 0 10px #8000ff4d;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .label {
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  
+  .select {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+  }
+  
+  .scoreWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .scoreInput {
+    width: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    margin-right: 10px;
+  }
+  
+  .scoreRange {
+    font-size: 12px;
+    color: #555;
+  }
+  
+  .textarea {
+    width: 95%;
+    min-height: 60px;
+    margin-top: 5px;
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid #999;
+    resize: vertical;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .buttonGroup {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 10px;
+  }
+  
+  .saveBtn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .resetBtn {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

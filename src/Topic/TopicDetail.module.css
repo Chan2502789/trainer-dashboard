@@ -2,11 +2,25 @@
     padding: 2rem;
   }
   
-  .heading {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header h2 {
+    color: white;
+    background: linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #e0e0e0 20%,
+      #000000 40%,
+      #333333 30%,
+      #6a0dad 70%,
+      #7855FA 100%
+    );
+    padding: 2rem 29rem;
+    border-radius: 8px;
   }
   
   .subHeading {
@@ -21,6 +35,67 @@
     gap: 1rem;
     margin-bottom: 2rem;
   }
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modalContent {
+    position: relative;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    z-index: 1001;
+  }
+  
+  
+  .closeBtn {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    background: transparent;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+    z-index: 10;
+  }
+  
+
+  
+  
+  .previewVideo {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    border-radius: 10px;
+  }
+  
+  .previewDoc {
+    width: 100%;
+    height: 70vh;
+    border: none;
+    border-radius: 10px;
+  }
+  
   
   .uploadBtn {
     background-color: black;
@@ -39,7 +114,7 @@
   }
   
   .fileBox {
-    width: 70%;
+    width: 90%;
     background-color: #7c4dff;
     color: white;
     padding: 0.9rem 1.5rem;
@@ -69,4 +144,12 @@
   .arrow {
     font-size: 1.2rem;
   }
+  
+  .videoPlayer {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+  
   
