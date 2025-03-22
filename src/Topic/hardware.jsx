@@ -67,9 +67,6 @@ const TopicDetail = () => {
     setIsEditing(false);
   };
 
-  /**
-   * ✅ Added `handleUpload` function
-   */
   const handleUpload = async (event, type) => {
     const uploadedFiles = Array.from(event.target.files);
 
@@ -95,9 +92,6 @@ const TopicDetail = () => {
     setFiles((prev) => [...prev, ...newFiles]);
   };
 
-  /**
-   * ✅ Added `closeModal` function
-   */
   const closeModal = () => setActiveFile(null);
 
   return (
@@ -108,7 +102,6 @@ const TopicDetail = () => {
           <h2>HARDWARE</h2>
         </div>
 
-        {/* Editable Section */}
         <div className={styles.editableContainer}>
           {isEditing ? (
             <div className={styles.inlineEdit}>
@@ -132,6 +125,8 @@ const TopicDetail = () => {
             </h3>
           )}
         </div>
+        <br></br>
+        <br></br>
 
         <div className={styles.buttons}>
           <label className={styles.uploadBtn}>
@@ -169,7 +164,7 @@ const TopicDetail = () => {
                   View
                 </button>
                 <button
-                  className={styles.cancelBtn}
+                  className={styles.closeBtn}
                   title="Delete"
                   onClick={() => {
                     const confirmed = window.confirm(`Delete ${file.name}?`);
@@ -181,6 +176,7 @@ const TopicDetail = () => {
                 >
                   ✕
                 </button>
+
                 <button
                   className={styles.downloadBtn}
                   onClick={() => {

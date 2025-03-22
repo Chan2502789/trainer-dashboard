@@ -24,7 +24,7 @@
     margin-bottom: 1.5rem;
   }
 
-  .cancelBtn,
+.cancelBtn,
 .downloadBtn {
   background-color: white;
   color: #7c4dff;
@@ -36,7 +36,6 @@
   transition: background-color 0.2s ease;
 }
 
-
 .cancelBtn:hover {
   background-color: #ffe6e6;
   color: red;
@@ -46,6 +45,7 @@
   background-color: #e6f7ff;
   color: #007bff;
 }
+
   
   .buttons {
     display: flex;
@@ -76,26 +76,26 @@
     overflow: auto;
     z-index: 1001;
   }
-  
-  
   .closeBtn {
-    position: absolute;
-    top: 30px;
-    right: 35px;
-    background: transparent;
-    color: white;
+    background: white;
+    color: #7c4dff;
     border: none;
-    border-radius: 50%;
-    font-size: 20px;
-    width: 36px;
-    height: 36px;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s ease;
-    z-index: 10;
+    transition: background 0.2s ease, color 0.2s ease;
   }
+  
+  .closeBtn:hover {
+    background: #ffe6e6;
+    color: red;
+  }
+  
   
 
   
@@ -169,6 +169,45 @@
     font-size: 1.2rem;
   }
   
+  .editableContainer {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .inlineEdit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .editInput {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .saveBtn,
+  .cancelBtn {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  
+  .saveBtn {
+    background: #28a745;
+    color: white;
+  }
+  
+  .cancelBtn {
+    background: #dc3545;
+    color: white;
+  }
+
+ 
   .videoPlayer {
     width: 100%;
     max-width: 600px;

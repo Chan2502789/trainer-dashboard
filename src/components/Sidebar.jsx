@@ -71,18 +71,6 @@ const Sidebar = ({ setModuleVisible }) => {
             Emails
           </Link>
         </li>
-
-        <li className={styles.navItem}>
-          <Link
-            to="/logout"
-            onClick={() => setActive("Logout")}
-            className={`${styles.menuItem} ${styles.indented} ${
-              active === "Logout" ? styles.active : ""
-            }`}
-          >
-            Log Out
-          </Link>
-        </li>
       </ul>
     </aside>
   );
