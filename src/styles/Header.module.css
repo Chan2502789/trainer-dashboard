@@ -1,5 +1,6 @@
 .header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     background: linear-gradient(
     135deg,
@@ -14,5 +15,4 @@
     border-radius: 12px;
     margin-bottom: 25px;
     color: #fff;
-  }
-  
+}

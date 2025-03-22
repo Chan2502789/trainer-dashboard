@@ -1,8 +1,7 @@
-// components/TopicDetail.jsx
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./TopicDetail.module.css";
-import { fileSave } from "browser-fs-access";
+import Navbar from "../components/navbar";
 
 const toBase64 = (file) =>
   new Promise((resolve, reject) => {
@@ -17,6 +16,8 @@ const TopicDetail = () => {
   const [topic, setTopic] = useState(location.state?.topic || null);
   const [files, setFiles] = useState([]);
   const [activeFile, setActiveFile] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [newTopicName, setNewTopicName] = useState("");
 
   useEffect(() => {
     if (!topic) {
@@ -46,16 +47,29 @@ const TopicDetail = () => {
     }
   }, [files]);
 
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (activeFile && e.code === "Space") {
-        e.preventDefault();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeFile]);
+  const handleDoubleClick = () => {
+    setNewTopicName(topic?.name || "Unknown Topic");
+    setIsEditing(true);
+  };
 
+  const handleSave = () => {
+    if (!newTopicName.trim()) return;
+    const updatedTopics = JSON.parse(localStorage.getItem("topics")) || [];
+    const updated = updatedTopics.map((t) =>
+      t.name === topic.name ? { ...t, name: newTopicName } : t
+    );
+    localStorage.setItem("topics", JSON.stringify(updated));
+    setTopic((prev) => ({ ...prev, name: newTopicName }));
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+  };
+
+  /**
+   * ✅ Added `handleUpload` function
+   */
   const handleUpload = async (event, type) => {
     const uploadedFiles = Array.from(event.target.files);
 
@@ -75,121 +89,140 @@ const TopicDetail = () => {
       }
 
       const base64 = await toBase64(file);
-      newFiles.push({
-        name: file.name,
-        type,
-        base64: base64,
-      });
+      newFiles.push({ name: file.name, type, base64: base64 });
     }
 
     setFiles((prev) => [...prev, ...newFiles]);
   };
 
+  /**
+   * ✅ Added `closeModal` function
+   */
   const closeModal = () => setActiveFile(null);
 
-  const handleSaveToFileSystem = async () => {
-    if (!activeFile) return;
-
-    try {
-      await fileSave(
-        new Blob([
-          new Uint8Array(
-            activeFile.base64
-              .substring(activeFile.base64.indexOf(",") + 1)
-              .match(/[\w-]+/g)
-              .map(function (el) {
-                return parseInt(el, 36);
-              })
-          ),
-        ]),
-        {
-          fileName: activeFile.name,
-        }
-      );
-    } catch (error) {
-      console.error("Error saving file:", error);
-      alert("Failed to save file to file system.");
-    }
-  };
-
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <h2>HARDWARE</h2>
-      </div>
-      <h3 className={styles.subHeading}>
-        {topic ? topic.name : "Unknown Topic"}
-      </h3>
+    <div>
+      <Navbar />
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h2>HARDWARE</h2>
+        </div>
 
-      <div className={styles.buttons}>
-        <label className={styles.uploadBtn}>
-          Upload Docs
-          <input
-            type="file"
-            accept=".pdf,.doc,.docx"
-            style={{ display: "none" }}
-            multiple
-            onChange={(e) => handleUpload(e, "pdf")}
-          />
-        </label>
-
-        <label className={styles.uploadBtn}>
-          Upload Video
-          <input
-            type="file"
-            accept=".mp4"
-            style={{ display: "none" }}
-            multiple
-            onChange={(e) => handleUpload(e, "video")}
-          />
-        </label>
-      </div>
-
-      <div className={styles.fileList}>
-        {files.map((file, index) => (
-          <div className={styles.fileBox} key={index}>
-            <span>{file.name}</span>
-            <div className={styles.actions}>
-              <button
-                className={styles.viewBtn}
-                onClick={() => setActiveFile(file)}
-              >
-                View
+        {/* Editable Section */}
+        <div className={styles.editableContainer}>
+          {isEditing ? (
+            <div className={styles.inlineEdit}>
+              <input
+                type="text"
+                value={newTopicName}
+                onChange={(e) => setNewTopicName(e.target.value)}
+                className={styles.editInput}
+                autoFocus
+              />
+              <button onClick={handleSave} className={styles.saveBtn}>
+                Save
               </button>
-              <span className={styles.arrow}>↓</span>
+              <button onClick={handleCancel} className={styles.cancelBtn}>
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <h3 className={styles.subHeading} onDoubleClick={handleDoubleClick}>
+              {topic ? topic.name : "Unknown Topic"}
+            </h3>
+          )}
+        </div>
+
+        <div className={styles.buttons}>
+          <label className={styles.uploadBtn}>
+            Upload Docs
+            <input
+              type="file"
+              accept=".pdf,.doc,.docx"
+              style={{ display: "none" }}
+              multiple
+              onChange={(e) => handleUpload(e, "pdf")}
+            />
+          </label>
+
+          <label className={styles.uploadBtn}>
+            Upload Video
+            <input
+              type="file"
+              accept=".mp4"
+              style={{ display: "none" }}
+              multiple
+              onChange={(e) => handleUpload(e, "video")}
+            />
+          </label>
+        </div>
+
+        <div className={styles.fileList}>
+          {files.map((file, index) => (
+            <div className={styles.fileBox} key={index}>
+              <span>{file.name}</span>
+              <div className={styles.actions}>
+                <button
+                  className={styles.viewBtn}
+                  onClick={() => setActiveFile(file)}
+                >
+                  View
+                </button>
+                <button
+                  className={styles.cancelBtn}
+                  title="Delete"
+                  onClick={() => {
+                    const confirmed = window.confirm(`Delete ${file.name}?`);
+                    if (confirmed) {
+                      const updatedFiles = files.filter((_, i) => i !== index);
+                      setFiles(updatedFiles);
+                    }
+                  }}
+                >
+                  ✕
+                </button>
+                <button
+                  className={styles.downloadBtn}
+                  onClick={() => {
+                    const link = document.createElement("a");
+                    link.href = file.base64;
+                    link.download = file.name;
+                    link.click();
+                  }}
+                >
+                  ⬇
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {activeFile && (
+          <div className={styles.modalOverlay} onClick={closeModal}>
+            <div
+              className={styles.modalContent}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className={styles.closeBtn} onClick={closeModal}>
+                ✕
+              </button>
+
+              {activeFile.type === "video" ? (
+                <video controls className={styles.previewVideo}>
+                  <source src={activeFile.base64} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <iframe
+                  src={activeFile.base64}
+                  title={activeFile.name}
+                  className={styles.previewDoc}
+                />
+              )}
             </div>
           </div>
-        ))}
+        )}
       </div>
-
-      {activeFile && (
-        <div className={styles.modalOverlay} onClick={closeModal}>
-          <div
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button className={styles.closeBtn} onClick={closeModal}>
-              ✕
-            </button>
-
-            {activeFile.type === "video" ? (
-              <video controls className={styles.previewVideo}>
-                <source src={activeFile.base64} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <iframe
-                src={activeFile.base64}
-                title={activeFile.name}
-                className={styles.previewDoc}
-              />
-            )}
-            <button className={styles.saveBtn} onClick={handleSaveToFileSystem}>
-              Save to File System
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

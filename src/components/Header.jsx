@@ -1,5 +1,6 @@
 import StatCard from "./StatCard";
 import styles from "../styles/Header.module.css";
+import LogoContainer from "./LogoContainer";
 
 const data = [
   { title: "Users", value: 232, button: "View all users" },
@@ -11,6 +12,7 @@ const data = [
 const Header = () => {
   return (
     <div className={styles.header}>
+      <LogoContainer />
       {data.map((item, i) => (
         <StatCard key={i} {...item} />
       ))}

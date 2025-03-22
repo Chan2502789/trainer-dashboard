@@ -1,86 +1,97 @@
 .container {
-    width: 350px;
-    margin: 150px auto 0 auto; /* Increased top margin */
-    padding: 20px;
-    border: 5px solid rgba(128, 0, 255, 0.4);
-    border-radius: 20px;
-    box-shadow: 0 0 10px #8000ff4d;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .title {
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .label {
-    margin-top: 10px;
-    font-weight: 500;
-  }
-  
-  .select {
-    width: 100%;
-    padding: 5px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #aaa;
-  }
-  
-  .scoreWrapper {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-  }
-  
-  .scoreInput {
-    width: 50px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #aaa;
-    margin-right: 10px;
-  }
-  
-  .scoreRange {
-    font-size: 12px;
-    color: #555;
-  }
-  
-  .textarea {
-    width: 95%;
-    min-height: 60px;
-    margin-top: 5px;
-    border-radius: 8px;
-    padding: 8px;
-    border: 1px solid #999;
-    resize: vertical;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-  }
-  
-  .buttonGroup {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-    gap: 10px;
-  }
-  
-  .saveBtn {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .resetBtn {
-    background-color: #f44336;
-    border: none;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+  width: 400px; /* Increased width */
+  height: 500px; /* Increased height */
+  margin: 100px auto;
+  padding: 25px; /* Slightly more padding */
+  border: 5px solid rgba(128, 0, 255, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(128, 0, 255, 0.4);
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  text-align: left;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.select {
+  width: 100%;
+  padding: 8px; /* Increased padding */
+  margin-top: 6px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  background-color: white;
+  color: black;
+}
+
+.scoreWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.scoreInput {
+  width: 60px; /* Increased width */
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  background-color: white;
+  color: white;
+}
+
+.scoreRange {
+  font-size: 13px;
+  color: #777;
+  margin-left: 12px;
+}
+
+.textarea {
+  width: 95%;
+  min-height: 80px; /* Increased height */
+  margin-top: 8px;
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #777;
+  resize: vertical;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  color: white;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* Increased margin */
+  gap: 15px;
+
+}
+
+.saveBtn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+
+}
+
+.resetBtn {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}

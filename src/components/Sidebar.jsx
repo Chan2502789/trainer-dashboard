@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/Sidebar.module.css";
-import nutanix from "../images/nutanix.png";
 import { useState } from "react";
+import LogoContainer from "./LogoContainer";
 
 const Sidebar = ({ setModuleVisible }) => {
   const [active, setActive] = useState("Dashboard");
 
- const handleDashboardClick = () => {
-    setModuleVisible((prev) => !prev);
+  const handleDashboardClick = () => {
+    setModuleVisible(false);
     setActive("Dashboard");
   };
 
@@ -18,15 +18,15 @@ const Sidebar = ({ setModuleVisible }) => {
 
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.logoContainer}>
-        <img src={nutanix} alt="NUTANIX Logo" className={styles.logo} />
-      </div>
+      <LogoContainer />
       <ul className={styles.menu}>
         <li className={styles.sectionTitle}>MAIN</li>
-        <li className={styles.navItem} onClick={handleDashboardClick}>
+
+        <li className={styles.navItem}>
           <Link
             to="/"
-            className={`${styles.menuItem} ${
+            onClick={handleDashboardClick}
+            className={`${styles.menuItem} ${styles.indented} ${
               active === "Dashboard" ? styles.active : ""
             }`}
           >
@@ -39,15 +39,22 @@ const Sidebar = ({ setModuleVisible }) => {
         <li className={styles.navItem}>
           <Link
             to="/feedback"
-            className={active === "Feedback" ? styles.active : ""}
+            onClick={() => setActive("Feedback")}
+            className={`${styles.menuItem} ${styles.indented} ${
+              active === "Feedback" ? styles.active : ""
+            }`}
           >
             Feedback Portal
           </Link>
         </li>
+
         <li className={styles.navItem}>
           <Link
             to="/intern-info"
-            className={active === "InternInfo" ? styles.active : ""}
+            onClick={() => setActive("InternInfo")}
+            className={`${styles.menuItem} ${styles.indented} ${
+              active === "InternInfo" ? styles.active : ""
+            }`}
           >
             Intern Information
           </Link>
@@ -56,15 +63,22 @@ const Sidebar = ({ setModuleVisible }) => {
         <li className={styles.navItem}>
           <Link
             to="/emails"
-            className={active === "Emails" ? styles.active : ""}
+            onClick={() => setActive("Emails")}
+            className={`${styles.menuItem} ${styles.indented} ${
+              active === "Emails" ? styles.active : ""
+            }`}
           >
             Emails
           </Link>
         </li>
+
         <li className={styles.navItem}>
           <Link
             to="/logout"
-            className={active === "Logout" ? styles.active : ""}
+            onClick={() => setActive("Logout")}
+            className={`${styles.menuItem} ${styles.indented} ${
+              active === "Logout" ? styles.active : ""
+            }`}
           >
             Log Out
           </Link>

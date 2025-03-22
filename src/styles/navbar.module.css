@@ -1,0 +1,47 @@
+.navbar {
+  display: flex;
+  justify-content: flex-end; /* Push content to right */
+  align-items: center;
+  height: 80px;
+  background-color: white;
+  border-bottom: 2px solid #7f4fff; /* vibrant purple */
+  padding-right :20px;
+}
+
+.rightIcon {
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.icon {
+  font-size: 16px; /* smaller icon size */
+  color: black;
+}
+
+
+.dropdown {
+    position: absolute;
+    top: 80px; /* Same as navbar height */
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    min-width: 120px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .dropdownItem {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: black;
+  }
+  
+  .dropdownItem:hover {
+    background-color: #f0f0f0;
+  }
