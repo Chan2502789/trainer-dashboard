@@ -6,8 +6,8 @@ import { useState } from "react";
 const Sidebar = ({ setModuleVisible }) => {
   const [active, setActive] = useState("Dashboard");
 
-  const handleDashboardClick = () => {
-    setModuleVisible(false);
+ const handleDashboardClick = () => {
+    setModuleVisible((prev) => !prev);
     setActive("Dashboard");
   };
 
@@ -18,42 +18,24 @@ const Sidebar = ({ setModuleVisible }) => {
 
   return (
     <aside className={styles.sidebar}>
-      <img src={nutanix} alt="NUTANIX Logo" className={styles.logo} />
+      <div className={styles.logoContainer}>
+        <img src={nutanix} alt="NUTANIX Logo" className={styles.logo} />
+      </div>
       <ul className={styles.menu}>
         <li className={styles.sectionTitle}>MAIN</li>
         <li className={styles.navItem} onClick={handleDashboardClick}>
-          <span
+          <Link
+            to="/"
             className={`${styles.menuItem} ${
               active === "Dashboard" ? styles.active : ""
             }`}
           >
             Dashboard
-          </span>
+          </Link>
         </li>
 
         <li className={styles.sectionTitle}>LISTS</li>
-        <li className={styles.navItem}>
-          <Link to="/users" className={active === "Users" ? styles.active : ""}>
-            Users
-          </Link>
-        </li>
-        <li className={styles.navItem}>
-          <Link
-            to="/schedule"
-            className={active === "Schedule" ? styles.active : ""}
-          >
-            Schedule
-          </Link>
-        </li>
-        <li className={styles.navItem} onClick={handleModuleClick}>
-          <span
-            className={`${styles.menuItem} ${
-              active === "Modules" ? styles.active : ""
-            }`}
-          >
-            Modules
-          </span>
-        </li>
+
         <li className={styles.navItem}>
           <Link
             to="/feedback"
@@ -70,14 +52,7 @@ const Sidebar = ({ setModuleVisible }) => {
             Intern Information
           </Link>
         </li>
-        <li className={styles.navItem}>
-          <Link
-            to="/leaderboard"
-            className={active === "Leaderboard" ? styles.active : ""}
-          >
-            Intern Leaderboard
-          </Link>
-        </li>
+
         <li className={styles.navItem}>
           <Link
             to="/emails"
