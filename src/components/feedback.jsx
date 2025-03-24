@@ -29,7 +29,7 @@ const FeedbackForm = () => {
     <div>
       <Navbar />
       <div className={styles.container}>
-        <h3 className={styles.title}>Hardware : Feedback</h3>
+        <h3 className={styles.title}>Hardware Feedback</h3>
 
         <label className={styles.label}>Intern Name</label>
         <select
@@ -60,7 +60,6 @@ const FeedbackForm = () => {
           className={styles.textarea}
           value={strengths}
           onChange={(e) => setStrengths(e.target.value)}
-          placeholder="Write the strengths."
         />
 
         <label className={styles.label}>Weaknesses</label>
@@ -68,7 +67,6 @@ const FeedbackForm = () => {
           className={styles.textarea}
           value={weaknesses}
           onChange={(e) => setWeaknesses(e.target.value)}
-          placeholder="Write the weaknesses."
         />
 
         <div className={styles.buttonGroup}>

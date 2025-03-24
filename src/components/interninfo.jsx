@@ -24,7 +24,6 @@ const InterInfo = () => {
       username: "Johnn434",
       email: "john03434@gmail.com",
     },
-
     {
       id: "e40343eb94c2812e4cd7e4233",
       username: "Dilvib1233",
@@ -42,22 +41,6 @@ const InterInfo = () => {
     },
   ]);
 
-  const [showForm, setShowForm] = useState(false);
-  const [newUser, setNewUser] = useState({ username: "", email: "" });
-
-  const handleAddUser = () => {
-    if (!newUser.username || !newUser.email)
-      return alert("Please enter all details!");
-    const newUserData = {
-      id: Date.now().toString(),
-      username: newUser.username,
-      email: newUser.email,
-    };
-    setUsers([...users, newUserData]);
-    setShowForm(false);
-    setNewUser({ username: "", email: "" });
-  };
-
   const handleDeleteUser = (id) => {
     setUsers(users.filter((user) => user.id !== id));
   };
@@ -66,47 +49,6 @@ const InterInfo = () => {
     <div>
       <Navbar />
       <div className={styles.container}>
-        <button className={styles.addUserBtn} onClick={() => setShowForm(true)}>
-          Add New User
-        </button>
-
-        {showForm && (
-          <div className={styles.formContainer}>
-            <div className={styles.formCard}>
-              <h3 className={styles.formTitle}>Add New User</h3>
-              <input
-                className={styles.inputField}
-                type="text"
-                placeholder="Username"
-                value={newUser.username}
-                onChange={(e) =>
-                  setNewUser({ ...newUser, username: e.target.value })
-                }
-              />
-              <input
-                className={styles.inputField}
-                type="email"
-                placeholder="Email"
-                value={newUser.email}
-                onChange={(e) =>
-                  setNewUser({ ...newUser, email: e.target.value })
-                }
-              />
-              <div className={styles.buttonGroup}>
-                <button className={styles.saveBtn} onClick={handleAddUser}>
-                  Save
-                </button>
-                <button
-                  className={styles.cancelBtn}
-                  onClick={() => setShowForm(false)}
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-
         <table className={styles.table}>
           <thead>
             <tr>
