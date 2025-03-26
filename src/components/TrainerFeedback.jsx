@@ -1,8 +1,10 @@
-import styles from "../styles/feedback.module.css";
+import styles from "../styles/TrainerFeedback.module.css"; //feedback.module.css to TrainerFeedback.module.css
 import { useState } from "react";
-import Navbar from "./navbar";
+import TrainerNavbar from "./TrainerNavbar"; //Navbar to TrainerNavbar
 
-const FeedbackForm = () => {
+const TrainerFeedbackForm = () => {
+  //Feedback to TrainerFeedbackForm
+
   const [internName, setInternName] = useState("");
   const [score, setScore] = useState(0);
   const [strengths, setStrengths] = useState("");
@@ -27,7 +29,7 @@ const FeedbackForm = () => {
 
   return (
     <div>
-      <Navbar />
+      <TrainerNavbar /> {/*Navbar to TrainerNavbar */}
       <div className={styles.container}>
         <h3 className={styles.title}>Hardware Feedback</h3>
 
@@ -82,4 +84,4 @@ const FeedbackForm = () => {
   );
 };
 
-export default FeedbackForm;
+export default TrainerFeedbackForm; //Feedback to TrainerFeedbackForm

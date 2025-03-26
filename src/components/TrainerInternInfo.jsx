@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import styles from "../styles/interninfo.module.css";
-import Navbar from "./navbar";
+import styles from "../styles/TrainerInternInfo.module.css"; //interninfo.module.css to TrainerInternInfo.module.css
+import TrainerNavbar from "./TrainerNavbar";
 
-const InterInfo = () => {
+const TrainerInterInfo = () => {
+  // InternInfo to TrainerInternInfo
+
   const [users, setUsers] = useState([
     {
       id: "630343eb94c2812e4cd7e45d",
@@ -47,7 +49,7 @@ const InterInfo = () => {
 
   return (
     <div>
-      <Navbar />
+      <TrainerNavbar /> {/*Navbar to TrainerNavbar */}
       <div className={styles.container}>
         <table className={styles.table}>
           <thead>
@@ -90,4 +92,4 @@ const InterInfo = () => {
   );
 };
 
-export default InterInfo;
+export default TrainerInterInfo; // InternInfo to TrainerInternInfo

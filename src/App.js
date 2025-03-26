@@ -1,12 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
-import Sidebar from "./components/Sidebar";
+import TrainerSidebar from "./components/TrainerSidebar";
 import { useState, useEffect } from "react";
 import styles from "./App.css";
-import TopicDetail from "./Topic/hardware";
-import Feedback from "./components/feedback";
-import InternInfo from "./components/interninfo";
-import ModulesDashboard from "./components/Module";
+import TrainerTopicDetail from "./Topic/TrainerTopicDetail"; // TopicDetail to TrainerTopicDetail
+import TrainerFeedbackForm from "./components/TrainerFeedback"; //Feedback to TrainerFeebackForm
+import TrainerInterInfo from "./components/TrainerInternInfo"; // InternInfo to TrainerInternInfo
+import TrainerModulesDashboard from "./components/TrainerModulesDashboard"; //Module to TrainerModuleDashboard
 
 function App() {
   const [moduleVisible, setModuleVisible] = useState(false);
@@ -17,13 +16,20 @@ function App() {
 
   return (
     <div className="app-container">
-      <Sidebar setModuleVisible={setModuleVisible} />
+      <TrainerSidebar setModuleVisible={setModuleVisible} />
       <div className="content">
         <Routes>
-          <Route path="/" element={<ModulesDashboard />} />
-          <Route path="/feedback" element={<Feedback />} />
-          <Route path="/intern-info" element={<InternInfo />} />
-          <Route path="/modules/:topicName" element={<TopicDetail />} />
+          <Route path="/" element={<TrainerModulesDashboard />} />{" "}
+          {/* ModuleDashboard to TrainerModuleDashboard*/}
+          <Route path="/feedback" element={<TrainerFeedbackForm />} />{" "}
+          {/* Feedback to TrainerFeedbackForm*/}
+          <Route path="/intern-info" element={<TrainerInterInfo />} />{" "}
+          {/* InternInfo to TrainerInternInfo*/}
+          <Route
+            path="/modules/:topicName"
+            element={<TrainerTopicDetail />}
+          />{" "}
+          {/* TopicDetal to TrainerTopicDetail*/}
         </Routes>
       </div>
     </div>

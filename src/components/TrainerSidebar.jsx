@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import styles from "../styles/Sidebar.module.css";
+import styles from "../styles/TrainerSidebar.module.css"; // sidebar.module.css to TrainerSidebar.module.css
 import { useState } from "react";
-import LogoContainer from "./LogoContainer";
+import TrainerLogoContainer from "./TrainerLogoContainer"; // LogoContainer changes to TrainerLogoContainer
 
-const Sidebar = ({ setModuleVisible }) => {
+const TrainerSidebar = ({ setModuleVisible }) => {
+  //Sidebar to TrainerSidebar
   const [active, setActive] = useState("Dashboard");
 
   const handleDashboardClick = () => {
@@ -11,14 +12,16 @@ const Sidebar = ({ setModuleVisible }) => {
     setActive("Dashboard");
   };
 
-  const handleModuleClick = () => {
-    setModuleVisible(true);
-    setActive("Modules");
-  };
-
   return (
     <aside className={styles.sidebar}>
-      <LogoContainer />
+      {/*Added Link to the Nutanix Logo to navigate to the main page */}
+      <Link
+        to="/"
+        onClick={handleDashboardClick}
+        className={styles.logoContainer}
+      >
+        <TrainerLogoContainer /> {/* LogoContainer to TrainerLogoContainer*/}
+      </Link>
       <ul className={styles.menu}>
         <li className={styles.sectionTitle}>MAIN</li>
 
@@ -76,4 +79,4 @@ const Sidebar = ({ setModuleVisible }) => {
   );
 };
 
-export default Sidebar;
+export default TrainerSidebar; //Sidebar to TrainerSidebar

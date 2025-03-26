@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import styles from "./TopicDetail.module.css";
-import Navbar from "../components/navbar";
+import styles from "./TrainerTopicDetail.module.css"; //TopicDetail.module.css to TrainerTopicDetail.module.css
+import Navbar from "../components/TrainerNavbar"; // Navbar to TrainerNavbar
 
 const toBase64 = (file) =>
   new Promise((resolve, reject) => {
@@ -11,7 +11,8 @@ const toBase64 = (file) =>
     reader.onerror = (error) => reject(error);
   });
 
-const TopicDetail = () => {
+const TrainerTopicDetail = () => {
+  //TopicDetail to TrainerTopicDetail
   const location = useLocation();
   const [topic, setTopic] = useState(location.state?.topic || null);
   const [files, setFiles] = useState([]);
@@ -223,4 +224,4 @@ const TopicDetail = () => {
   );
 };
 
-export default TopicDetail;
+export default TrainerTopicDetail; //TopicDetail to TrainerTopicDetail

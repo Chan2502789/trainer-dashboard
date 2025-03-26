@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import styles from "../styles/Module.module.css";
+import styles from "../styles/TrainerModuleDashboard.module.css"; //moduledashboard.module.css to TrainerModuleDashboard.module.css
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import Navbar from "./navbar";
+import TrainerNavbar from "./TrainerNavbar"; // Navbar to TrainerNavbar
 
-const ModulesDashboard = () => {
+const TrainerModulesDashboard = () => {
+  //ModuleDashboard to TrainerModuleDashboard
   const [topics, setTopics] = useState([]);
   const [addingTopic, setAddingTopic] = useState(false);
   const [newTopicName, setNewTopicName] = useState("");
@@ -80,7 +81,7 @@ const ModulesDashboard = () => {
 
   return (
     <div>
-      <Navbar />
+      <TrainerNavbar /> {/*Navbar to TrainerNavbar*/}
       <div className={styles.container}>
         <div className={styles.header}>
           <h2>HARDWARE</h2>
@@ -166,4 +167,4 @@ const ModulesDashboard = () => {
   );
 };
 
-export default ModulesDashboard;
+export default TrainerModulesDashboard; //ModuleDashboard to TrainerModuleDashboard

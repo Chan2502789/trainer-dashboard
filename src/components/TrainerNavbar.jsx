@@ -1,8 +1,9 @@
 import { useState } from "react";
-import styles from "../styles/navbar.module.css";
+import styles from "../styles/TrainerNavbar.module.css"; //Navbar.module.css to TrainerNavbar.module.css
 import { FaBars } from "react-icons/fa";
 
-const Navbar = () => {
+const TrainerNavbar = () => {
+  //Navbar to TrainerNavbar
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -21,4 +22,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default TrainerNavbar; //Navbar to TrainerNavbar
